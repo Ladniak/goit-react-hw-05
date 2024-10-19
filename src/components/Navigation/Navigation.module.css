@@ -1,0 +1,13 @@
+.headerDiv {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.link {
+  color: black;
+}
+
+.active {
+  color: aqua;
+}
