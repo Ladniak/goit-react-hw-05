@@ -1,0 +1,26 @@
+.castList {
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 0px 0px inset;
+}
+
+.castImg {
+  width: 70px;
+  margin-bottom: 5px;
+}
+
+.castList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.castListItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.infoOfActor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import module from "./MovieReviews.module.css"
+
 const MovieReviews = () => {
 
     const { movieId } = useParams();
@@ -30,10 +32,10 @@ const MovieReviews = () => {
     if (!reviews) return;
 
     return (
-        <ul>
+        <ul className={module.reviewList}>
             {reviews.length > 0 ? (
                 reviews.map(review => (
-                    <li key={review.id}>
+                    <li className={module.reviewListItem} key={review.id}>
                         <h3>{review.author}</h3>
                         <p>{review.content}</p>
                     </li>

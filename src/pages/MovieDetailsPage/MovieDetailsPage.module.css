@@ -1,4 +1,66 @@
+.contentDiv {
+  display: flex;
+  padding-right: 95px;
+  margin-bottom: 10px;
+}
+
+.goBackBtn {
+  display: flex;
+  border: none;
+  gap: 3px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px 10px 5px 10px;
+  background: #276299;
+  color: white;
+  transition: 0.5s;
+}
+
+.goBackBtn:hover {
+  background: #1a4064;
+}
+
+.svgIcon {
+  background: inherit;
+}
+
+.movieImg {
+  width: 380px;
+}
+
+.infoDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+
+  padding: 75px 0 0 25px;
+}
+
+.mainInformation {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.movieGenres {
+  display: flex;
+  gap: 10px;
+}
+
+.linkDiv {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
 .revLink {
-  color: blue;
-  text-decoration: underline;
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+}
+
+.revLink:hover {
+  color: rgb(0, 233, 175);
 }

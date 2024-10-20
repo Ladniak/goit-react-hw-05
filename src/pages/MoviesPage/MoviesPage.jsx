@@ -1,20 +1,22 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import SearchBar from "../../components/SearchBar/SearchBar"
 import MovieList from "../../components/MovieList/MovieList";
 
-import axios from "axios";
-
 const MoviesPage = () => {
 
     const [movies, setMovies] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
+    const [inputIsEmpty, setInputIsEmpty] = useState();
 
     const searchValue = searchParams.get("q");
+    const urlState = `/movies`;
 
     const onSearch = (value) => {
-        setSearchParams({ q: value })
+        setSearchParams({ q: value });
+        setInputIsEmpty(false);
     }
 
     useEffect(() => {
@@ -30,7 +32,7 @@ const MoviesPage = () => {
 
                 const { data } = await axios.get(`https://api.themoviedb.org/3/search/movie?&query=${searchValue}&include_adult=false&language=en-US`, options);
 
-                setMovies(data.results)
+                setMovies(data.results);
             } catch (error) {
                 console.log(error);
             }
@@ -40,10 +42,10 @@ const MoviesPage = () => {
 
     return (
         <>
-            <SearchBar onSearch={onSearch} />
-            <MovieList movies={movies} />
+            <SearchBar setInputIsEmpty={setInputIsEmpty} onSearch={onSearch} />
+            {inputIsEmpty ? <h1>Fill in the input field!</h1> : <MovieList urlState={urlState} movies={movies} />}
         </>
     )
 }
 
-export default MoviesPage
+export default MoviesPage;

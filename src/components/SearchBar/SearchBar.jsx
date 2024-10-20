@@ -1,30 +1,32 @@
+import module from "./SearchBar.module.css";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, setInputIsEmpty }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const searchValue = event.currentTarget.elements.search.value;
+        const searchValue = event.currentTarget.elements.search.value.trim();
         if (searchValue === '') {
-            return;
+            setInputIsEmpty(true);
         } else {
             onSearch(searchValue);
         }
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className={module.searchDiv}>
+            <form className={module.searchForm} onSubmit={handleSubmit}>
                 <input
+                    className={module.searchInput}
                     type="text"
                     autoComplete="off"
                     name="search"
                     autoFocus
                     placeholder="Search movie"
                 />
-                <button type="submit">Search</button>
+                <button className={module.searchBtn} type="submit">Search</button>
             </form>
         </div>
     )
 }
 
-export default SearchBar
+export default SearchBar;

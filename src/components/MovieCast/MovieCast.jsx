@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import module from "./MovieCast.module.css"
+
 const MovieCast = () => {
 
     const { movieId } = useParams();
@@ -32,12 +34,16 @@ const MovieCast = () => {
     if (!cast) return;
 
     return (
-        <ul>
+        <ul className={module.castList}>
             {cast.length > 0 ? (
                 cast.map(item => (
-                    <li key={item.id}>
-                        <h3>Name: {item.name}</h3>
-                        <h3>Character{item.character}</h3>
+                    <li className={module.castListItem} key={item.id}>
+                        <img className={module.castImg} alt="Avatar" src={`https://image.tmdb.org/t/p/w500${item.profile_path}`} />
+                        <div className={module.infoOfActor}>
+                            <h3 className={module.nameOfActor}>Name: {item.name}</h3>
+                            <h3>Character: {item.character}</h3>
+                        </div>
+
                     </li>
                 ))
             ) : (

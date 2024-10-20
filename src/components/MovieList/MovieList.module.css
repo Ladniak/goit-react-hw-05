@@ -1,11 +1,15 @@
 .moviesList {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
   margin-top: 15px;
 }
 
 .elementLink {
-  color: blue;
-  text-decoration: underline;
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+}
+
+.elementLink:hover {
+  color: rgb(0, 233, 175);
 }

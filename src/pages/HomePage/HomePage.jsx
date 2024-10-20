@@ -1,12 +1,14 @@
 import axios from "axios"
-
 import { useEffect, useState } from "react"
 
 import MovieList from "../../components/MovieList/MovieList"
 
+import module from "./HomePage.module.css"
+
 const HomePage = () => {
 
     const [movies, setMovies] = useState();
+    const urlState = '/'
 
     useEffect(() => {
         const fetchTrendingMovie = async () => {
@@ -28,10 +30,10 @@ const HomePage = () => {
     }, []);
 
     return (
-        <>
-            <div>Trending movies</div>
-            <MovieList movies={movies} />
-        </>
+        <div className={module.contentDiv}>
+            <h1 className={module.header}>Trending movies</h1>
+            <MovieList urlState={urlState} movies={movies} />
+        </div>
     )
 }
 
