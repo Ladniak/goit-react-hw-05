@@ -1,5 +1,7 @@
 import axios from "axios"
+
 import { useEffect, useState } from "react"
+
 import MovieList from "../../components/MovieList/MovieList"
 
 const HomePage = () => {
@@ -23,7 +25,7 @@ const HomePage = () => {
             }
         }
         fetchTrendingMovie();
-    }, [])
+    }, []);
 
     return (
         <>
