@@ -2,14 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import SearchBar from "../../components/SearchBar/SearchBar"
+import SearchBar from "../../components/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 
 const MoviesPage = () => {
-
     const [movies, setMovies] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
-    const [inputIsEmpty, setInputIsEmpty] = useState();
+    const [inputIsEmpty, setInputIsEmpty] = useState(false);
+    const [noResults, setNoResults] = useState(false);
 
     const searchValue = searchParams.get("q");
     const urlState = `/movies`;
@@ -17,7 +17,8 @@ const MoviesPage = () => {
     const onSearch = (value) => {
         setSearchParams({ q: value });
         setInputIsEmpty(false);
-    }
+        setNoResults(false);
+    };
 
     useEffect(() => {
         if (searchValue === null) return;
@@ -30,22 +31,36 @@ const MoviesPage = () => {
                     }
                 };
 
-                const { data } = await axios.get(`https://api.themoviedb.org/3/search/movie?&query=${searchValue}&include_adult=false&language=en-US`, options);
+                const { data } = await axios.get(
+                    `https://api.themoviedb.org/3/search/movie?&query=${searchValue}&include_adult=false&language=en-US`,
+                    options
+                );
 
-                setMovies(data.results);
+                if (data.results.length === 0) {
+                    setNoResults(true);
+                } else {
+                    setMovies(data.results);
+                }
             } catch (error) {
                 console.log(error);
             }
-        }
+        };
+
         fetchMovieBySearch();
     }, [searchValue]);
 
     return (
         <>
             <SearchBar setInputIsEmpty={setInputIsEmpty} onSearch={onSearch} />
-            {inputIsEmpty ? <h1>Fill in the input field!</h1> : <MovieList urlState={urlState} movies={movies} />}
+            {inputIsEmpty ? (
+                <h1>Fill in the input field!</h1>
+            ) : noResults ? (
+                <h1>No results found!</h1>
+            ) : (
+                <MovieList urlState={urlState} movies={movies} />
+            )}
         </>
-    )
-}
+    );
+};
 
 export default MoviesPage;

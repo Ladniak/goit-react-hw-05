@@ -21,8 +21,6 @@ const MovieCast = () => {
                 const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US&page=1`, options);
 
                 setCast(data.cast);
-                console.log(data.cast);
-
             } catch (error) {
                 console.log(error);
             }
