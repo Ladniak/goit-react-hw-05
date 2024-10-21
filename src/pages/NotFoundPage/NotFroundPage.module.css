@@ -1,0 +1,16 @@
+.notFoundDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 200px;
+  gap: 15px;
+}
+
+.link {
+  transition: 0.5s;
+}
+
+.link:hover {
+  color: rgb(0, 233, 175);
+}
