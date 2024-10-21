@@ -7,7 +7,7 @@ import module from "./HomePage.module.css"
 
 const HomePage = () => {
 
-    const [movies, setMovies] = useState();
+    const [movies, setMovies] = useState([]);
     const urlState = '/'
 
     useEffect(() => {

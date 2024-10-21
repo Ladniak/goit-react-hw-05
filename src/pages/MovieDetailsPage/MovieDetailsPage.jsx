@@ -36,7 +36,7 @@ const MovieDetailsPage = () => {
 
     if (!movie) return;
 
-    const backUrl = location.state?.from || '/movies';
+    const backUrl = location.state?.from || '/movie';
     const goBack = () => navigate(backUrl);
 
     return (
@@ -74,8 +74,8 @@ const MovieDetailsPage = () => {
                     </div>
                     <div className={module.linkDiv}>
                         <h3>Additional Information</h3>
-                        <Link className={module.revLink} to={`/movies/${movieId}/cast`} >Cast</Link>
-                        <Link className={module.revLink} to={`/movies/${movieId}/reviews`} >Reviews</Link>
+                        <Link className={module.revLink} to={`/movies/${movieId}/cast`} state={{ from: location.state?.from || '/movies' }}>Cast</Link>
+                        <Link className={module.revLink} to={`/movies/${movieId}/reviews`} state={{ from: location.state?.from || '/movies' }}>Reviews</Link>
                     </div>
                 </div>
             </div>
