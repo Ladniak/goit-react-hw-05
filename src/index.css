@@ -1,5 +1,13 @@
 body {
-  background: #6d7ea3;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Додає статичність фону */
   margin: 0;
   padding: 0 65px;
 }

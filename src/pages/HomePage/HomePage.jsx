@@ -1,14 +1,13 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-import MovieList from "../../components/MovieList/MovieList"
+import MovieList from "../../components/MovieList/MovieList";
 
-import module from "./HomePage.module.css"
+import module from "./HomePage.module.css";
 
 const HomePage = () => {
-
     const [movies, setMovies] = useState([]);
-    const urlState = '/'
+    const urlState = '/';
 
     useEffect(() => {
         const fetchTrendingMovie = async () => {
@@ -21,20 +20,24 @@ const HomePage = () => {
 
                 const { data } = await axios.get("https://api.themoviedb.org/3/trending/movie/day?language=en-US", options);
 
-                setMovies(data.results)
+                const updatedMovies = data.results.map(movie => ({
+                    ...movie,
+                    posterUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                }));
+
+                setMovies(updatedMovies);
             } catch (error) {
                 console.log(error);
             }
-        }
+        };
         fetchTrendingMovie();
     }, []);
 
     return (
         <div className={module.contentDiv}>
-            <h1 className={module.header}>Trending movies</h1>
             <MovieList urlState={urlState} movies={movies} />
         </div>
-    )
-}
+    );
+};
 
-export default HomePage
+export default HomePage;

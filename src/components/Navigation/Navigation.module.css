@@ -2,7 +2,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
-  background: #276299;
+  background-color: rgb(150, 12, 12);
   padding: 15px 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -13,5 +13,5 @@
 }
 
 .active {
-  color: rgb(0, 233, 175);
+  color: rgb(153, 153, 153);
 }

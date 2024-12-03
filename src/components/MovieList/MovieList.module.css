@@ -1,15 +1,30 @@
 .moviesList {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 елементів в рядку */
+  gap: 16px; /* Відступи між фільмами */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.movieImg {
+  width: 100%; /* Зображення займатиме всю ширину контейнера */
+  height: auto;
+  border-radius: 8px; /* Опціонально, щоб зображення виглядали краще */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легка тінь для естетики */
 }
 
 .elementLink {
-  color: rgb(0, 0, 0);
-  transition: 0.5s;
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  color: #000; /* Колір тексту */
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 300ms;
 }
 
 .elementLink:hover {
-  color: rgb(0, 233, 175);
+  transform: scale(1.1);
 }

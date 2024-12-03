@@ -39,7 +39,13 @@ const MoviesPage = () => {
                 if (data.results.length === 0) {
                     setNoResults(true);
                 } else {
-                    setMovies(data.results);
+                    const moviesWithPosters = data.results.map(movie => ({
+                        ...movie,
+                        posterUrl: movie.poster_path
+                            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                            : "https://via.placeholder.com/500x750?text=No+Image"
+                    }));
+                    setMovies(moviesWithPosters);
                 }
             } catch (error) {
                 console.log(error);
@@ -48,6 +54,7 @@ const MoviesPage = () => {
 
         fetchMovieBySearch();
     }, [searchValue]);
+
 
     return (
         <>

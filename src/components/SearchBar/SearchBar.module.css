@@ -40,5 +40,6 @@
 }
 
 .searchBtn:hover {
-  background: rgb(0, 233, 175);
+  background: rgb(203, 7, 7);
+  color: white;
 }

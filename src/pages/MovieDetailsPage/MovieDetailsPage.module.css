@@ -1,6 +1,7 @@
 .contentDiv {
   display: flex;
   padding-right: 95px;
+  color: white;
 }
 
 .goBackBtn {
@@ -10,13 +11,13 @@
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 5px 10px 5px 10px;
-  background: #276299;
+  background: rgb(203, 7, 7);
   color: white;
   transition: 0.5s;
 }
 
 .goBackBtn:hover {
-  background: #1a4064;
+  background: rgb(119, 0, 0);
 }
 
 .svgIcon {
@@ -56,10 +57,10 @@
 
 .revLink {
   display: inline-block;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   transition: 0.5s;
 }
 
 .revLink:hover {
-  color: rgb(0, 233, 175);
+  color: rgb(203, 7, 7);
 }
